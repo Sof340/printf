@@ -57,7 +57,7 @@ int _printf(const char *format, ...)
 				s = va_arg(str, char*);
 				if (s == NULL)
 				{
-					k += _putchar(' ');
+					k += _putchar("(null)");
 					continue;
 				}
 				for (j = 0 ; s[j] != '\0'; j++)

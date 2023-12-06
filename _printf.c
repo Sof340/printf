@@ -57,7 +57,10 @@ int _printf(const char *format, ...)
 				s = va_arg(str, char*);
 				if (s == NULL)
 				{
-					k += _putchar();
+					k += _putchar('n');
+					k += _putchar('u');
+					k += _putchar('l');
+					k += _putchar('l');
 					continue;
 				}
 				for (j = 0 ; s[j] != '\0'; j++)

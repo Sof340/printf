@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_char_string - this funtion prints chars, string chars and %.
+ * printf - this funtion prints chars, string chars , % and int.
  * @format : character string.
  * @... : rest of the paramettre given to the function.
  * Return : number of characters printed
@@ -9,10 +9,10 @@
 
 
 
-int printf_char_string(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int n, i, j, m ,k;
-	char *f;
+	int f;
 	char *s;
 	/* we declare a va_list pointer variable to use later
 	 * we name str 
@@ -38,7 +38,7 @@ int printf_char_string(const char *format, ...)
 		/*When we stumbel with an identifier we check the caracter next to it*/
 		if (format[i] == '%')
 		{
-			if (format[i + 1])
+			if (format[i + 1] == 'c')
 			{	
 				k += _putchar(va_arg(str, int));
 				i = i + 1;
@@ -65,7 +65,11 @@ int printf_char_string(const char *format, ...)
 				for (j = 0; j < m; j++)
 				       	k += _putchar(s[j]);
                                 i = i + 1;
-                        }
+                        }else if (format[i + 1] == 'd')
+			{
+				f = va_arg(str, int);
+				k += printnumber(f, k);
+			}
 		}
 		else
 			/*print the normal inputed text*/
